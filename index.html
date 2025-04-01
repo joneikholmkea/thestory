@@ -286,7 +286,8 @@
                         </div>
                         <div style="flex: 1;">
                             <img src="/api/placeholder/400/300" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
-                        </div>
+                        </div
+
                     </div>
                 `,
                 animationContent: `
@@ -438,57 +439,98 @@
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 10: Headline",
-                detailContent: "<p>details</p>",
+                title: "Create & send ARP query message",
+                shortDescription: "",
+                detailTitle: "Step 10: Create & send ARP query message",
+                detailContent:
+                    `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+
+                            <p>Bob’s computer sender en ARP-forespørgsel for at finde MAC-adressen til IP-adressen 68.85.2.1 (dens router). Forespørgslen pakkes i en Ethernet-frame med broadcast-adressen (FF:FF:FF:FF:FF:FF) og sendes til switchen, som videresender den til alle enheder på netværket, inkl. routeren.</p>,
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="Images/Step-10.jpg" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">ARP-forespørgsel</div>
+                            <div class="packet-body">Sendes til alle, for at finde Ip-adressen 68.85.2.1</div>
                         </div>
                     </div>
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 11: Headline",
-                detailContent: "<p>details</p>",
+                title: "Gateway responds to ARP request",
+                shortDescription: "",
+                detailTitle: "Step 11: Gateway responds to ARP request",
+                detailContent:
+                    `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+
+                             <p>Routeren genkender sin ip i ARP requesten, og sender en ARP svar med sin MAC adresse direkte til bob's laptop via switchen.</p>                                              </div>
+                        <div style="flex: 1;">
+                            <img src="Images/Step-11.jpg" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">ARP-svar</div>
+                            <div class="packet-body">Gateway router svarer tilbage til bobs laptop</div>
                         </div>
                     </div>
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 12: Headline",
-                detailContent: "<p>details</p>",
+                title: "Receives & extracts reply from router",
+                shortDescription: "",
+                detailTitle: "Step 12: Receives & extracts reply from router",
+                detailContent:
+                    `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+
+                            <p>Bobs laptop modtager ARP svaret og gemmer gatewayens MAC adresse i sin ARP tabel.</p>                                              </div>
+                        <div style="flex: 1;">
+                            <img src="Images/Step-12.jpg" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">MAC adresse</div>
+                            <div class="packet-body">Bliver gemt i bobs laptop ARP tabel</div>
                         </div>
                     </div>
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 13: Headline",
-                detailContent: "<p>details</p>",
+                title: "Sends DNS request to gateway of MAC address",
+                shortDescription: "",
+                detailTitle: "Step 13: Sends DNS request to gateway of MAC address",
+                detailContent:
+                    `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+
+                            <p>Bob's laptop sender DNS requesten inkapslet i en ethernet frame til gatewayens MAC adresse via switchen</p>                                           </div>
+                        <div style="flex: 1;">
+                            <img src="Images/Step-13.jpg" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">DNS request</div>
+                            <div class="packet-body">sendes til gateway router for MAC addressen</div>
                         </div>
                     </div>
                 `
