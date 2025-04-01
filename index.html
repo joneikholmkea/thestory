@@ -616,15 +616,40 @@
                 `
             },
             {
-                title: "20",
-                shortDescription: "Server responds with a SYN-ACK",
+                title: "Server responds with a SYN-ACK",
+                shortDescription: "",
                 detailTitle: "Step 20: Server responds with a SYN-ACK",
-                detailContent: "<p>details</p>",
+                detailContent: `
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h3>The datagram arrives at google.com</h3>
+                    </br>
+
+                    <h3>The datagram is de-multiplexed</h3>
+                    <p> Multiplexion is done in order to have multiple datastreams run on a single physical connection.</p>
+                    <p> De-multiplexion is done in order to sort out the multiplexed datastreams.</p>
+                    <p> Port 80 is usually used for HTTP, which is what Bob's GET request is.</p>
+                    </br>
+
+                    <h3>A connection socket is created between Bob's laptop and the Google HTTP server</h3>
+                    </br>
+
+                    <h3>A TCP SYNACK segment is sent back to Bob's laptop</h3>
+                    <p>A TCP SYNACK segment is generated </p>
+                    <p> The segment is placed inside a datagram addressed to Bob's laptop</p>
+                    <p> finally, the segment is wrapped in a frame</p>
+
+                </div>
+                <div style="flex: 1;">
+                    <img src="/api/placeholder/400/300" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+        `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">TCP SYN-ACK datagram</div>
+                            <div class="packet-body"></div>
                         </div>
                     </div>
                 `
