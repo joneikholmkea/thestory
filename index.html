@@ -505,7 +505,7 @@
                                 <li>1. Gateway-routeren modtager en &quot;konvolut&quot; med en besked (IP-datagram), <br>   som indeholder en forespørgsel (DNS-forespørgsel)</li>
                                 <li>2. Routeren ser på adressen på konvolutten (destinationen 68.87.71.226) for at finde ude af,<br>   hvor beskeden skal sendes hen.</li>
                                 <li>3. Ved hjælp af en "vejviser" (videresendelsestabel) beslutter routeren, <br>   at beskeden skal sendes til det venstre router i Comcast-netværket.</li>
-                                <li>4. Beskeden pakkes inde i en ny &quot;konvolut&quot; (link-lag ramme),<br>   der passer til forbindelsen mellem skolens router og Comcast-routeren.</li>
+                                <li>4. Beskeden pakkes inde i en ny &quot;konvolut&quot; (ethernet-frame),<br>   og sender den videre til første Comcast-routeren.</li>
                                 <li>5. Den nye konvolut sendes over forbindelsen til den næste destination i netværket.</li>
                             </ul>
                         </div>
@@ -534,7 +534,6 @@
                             <ul>
                                 <li>step 1: Comcast-routeren modtager pakken og ser, at den skal til DNS-serverens IP.</li>
                                 <li>step 2: Den bruger sin tabel til at finde den rigtige vej fremad.</li>
-                                <li>step 3: Tabellen er lavet ud fra routingprotokoller som RIP, OSPF eller BGP.</li>
                                 <li>step 4: Pakken sendes videre mod DNS-serveren gennem Comcast-netværket..</li>
                             </ul>
                         </div>
