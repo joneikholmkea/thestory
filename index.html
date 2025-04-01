@@ -553,24 +553,22 @@
                 title: "18",
                 shortDescription: "details",
                 detailTitle: "Step 18: TCP SYN Request",
-                detailContent: ` "<p>details</p>",
+                detailContent: `
             <div style="display: flex; gap: 20px;">
                 <div style="flex: 1;">
-                    <h3>Headline</h3>
-                    <p>details</p>
+                    <h3>Bob's laptop creates a TCP socket</h3>
+                    </br>
 
-                    <h3>Headline</h3>
+                    <h3>Bob's laptop initiates a three way handshake</h3>
                     <ul>
-                        <li>details</li>
-                        <li>details</li>
-                        <li>details</li>
+                        <li>The laptop prepares a TCP SYN packet containing the destination port 80, which is usually used to indicate HTML</li>
+                        <li>the TCP SYN packet is placed inside a IP-datagram, which also contains the IP-adresses of Google.com and Bob's laptop</li>
+                        <li>The IP-datagram is wrapped inside a frame, which contains the MAC-adresses of Google's gateway router and Bob's laptop.</li>
                     </ul>
+                    </br>
+                    
+                    <h3>The frame is sent to the switch on the local network</h3>
 
-                    <h3>Headline</h3>
-                    <ul>
-                        <li>details</li>
-                        <li>details</li>
-                    </ul>
                 </div>
                 <div style="flex: 1;">
                     <img src="/api/placeholder/400/300" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
