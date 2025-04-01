@@ -536,43 +536,89 @@
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
+                title: "Gateway-routeren",
+                shortDescription: "Modtager DNS-forespørgsel",
                 detailTitle: "Step 14: Headline",
-                detailContent: "<p>details</p>",
+                detailContent: `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+                            <h3>Gateway-routeren og DNS</h3>
+                            <ul>
+                                <li>1. Gateway-routeren modtager en &quot;konvolut&quot; med en besked (IP-datagram), <br>   som indeholder en forespørgsel (DNS-forespørgsel)</li>
+                                <li>2. Routeren ser på adressen på konvolutten (destinationen 68.87.71.226) for at finde ude af,<br>   hvor beskeden skal sendes hen.</li>
+                                <li>3. Ved hjælp af en "vejviser" (videresendelsestabel) beslutter routeren, <br>   at beskeden skal sendes til det venstre router i Comcast-netværket.</li>
+                                <li>4. Beskeden pakkes inde i en ny &quot;konvolut&quot; (ethernet-frame),<br>   og sender den videre til første Comcast-routeren.</li>
+                                <li>5. Den nye konvolut sendes over forbindelsen til den næste destination i netværket.</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="CN14.png" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">Going to Comcast-router</div>
+                            <div class="packet-body">Wild Gateway going for Comcast</div>
                         </div>
                     </div>
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 15: Headline",
-                detailContent: "<p>details</p>",
+                title: "Første Comcast-router",
+                shortDescription: "sender den videre",
+                detailTitle: "Step 15: Første Comcast-router sender den videre",
+                detailContent: `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+                            <h3>15. Første Comcast-router sender den videre</h3>
+                            <ul>
+                                <li>step 1: Comcast-routeren modtager pakken og ser, at den skal til DNS-serverens IP.</li>
+                                <li>step 2: Den bruger sin tabel til at finde den rigtige vej fremad.</li>
+                                <li>step 4: Pakken sendes videre mod DNS-serveren gennem Comcast-netværket..</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="CN15.png" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">Første Comcast-router</div>
+                            <div class="packet-body">sender den videre</div>
                         </div>
                     </div>
                 `
             },
             {
-                title: "Headline",
-                shortDescription: "details",
-                detailTitle: "Step 16: Headline",
-                detailContent: "<p>details</p>",
+                title: "DNS-serveren svarer",
+                shortDescription: "Svarer",
+                detailTitle: "16. DNS-serveren svarer",
+                detailContent: `
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+                            <h3>16. DNS-serveren svarer</h3>
+                            <ul>
+                                <li>Step 1: DNS-serveren modtager pakken og læser forespørgslen.</li>
+                                <li>Step 2: Den slår www.google.com op i sin database.</li>
+                                <li>Step 3: Den finder IP-adressen (f.eks. 64.233.169.105)..</li>
+                                <li>Step 4: DNS-serveren laver et svar med IP’en og pakker det i en ny besked.'.</li>
+                                <li>Step 5: Svaret bliver sendt tilbage gennem Comcast og skolens netværk til Bob’s laptop.</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="CN16.png" alt="Placeholder image" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                    </div>
+                `,
                 animationContent: `
                     <div class="animation-item">
                         <div class="packet-icon">
-                            <div class="packet-header">Title</div>
-                            <div class="packet-body">details</div>
+                            <div class="packet-header">DNS-serveren svarer</div>
+                            <div class="packet-body">svarer</div>
                         </div>
                     </div>
                 `
