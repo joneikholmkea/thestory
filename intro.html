@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Request Adventure</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide {
+            width: 90%;
+            height: 85%;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        .slide-header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 20px 40px;
+            font-size: 2.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .slide-content {
+            flex: 1;
+            padding: 30px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .text-container {
+            flex: 1;
+            font-size: 1.8em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .visual-container {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            margin-top: 20px;
+        }
+        
+        .list-container {
+            font-size: 1.5em;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .list-container li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .list-container li:before {
+            content: "•";
+            color: #4b6cb7;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .map-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 90%;
+            margin: 0 auto;
+            font-size: 1.5em;
+        }
+        
+        .map-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .map-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .arrow {
+            font-size: 1.5em;
+        }
+        
+        .nav-buttons {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-button {
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #182848;
+        }
+        
+        .group-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .group-item {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4b6cb7;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1 -->
+        <div class="slide active" id="slide1">
+            <div class="slide-header">Welcome to the Web Request Adventure!</div>
+            <div class="slide-content">
+                <div class="text-container">
+                    <p>A Day in the Life of a Web Page Request – Let's Explore!</p>
+                </div>
+                <div class="visual-container">
+                    <div style="text-align: center;">
+                        <span style="font-size: 2em;">🌐</span>
+                        <div style="font-size: 0.3em; display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+                            <span>⟳</span>
+                            <span style="margin: 0 10px;">🏃‍♂️</span>
+                            <span style="font-size: 0.8em;">📡 → 📡 → 📡</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="nextSlide()">→</button>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" id="slide2">
+            <div class="slide-header">What Happens When You Click 'Go'?</div>
+            <div class="slide-content">
+                <div class="text-container">
+                    <p>Imagine a web request as an explorer. It's a long trip—where does it start?</p>
+                </div>
+                <div class="visual-container" style="font-size: 2.5em;">
+                    <div class="map-container">
+                        <div class="map-item">
+                            <div class="map-icon">🌐</div>
+                            <div>Browser</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">🔍</div>
+                            <div>DNS</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">📡</div>
+                            <div>Routers</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">🖥️</div>
+                            <div>Server</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevSlide()">←</button>
+                <button class="nav-button" onclick="nextSlide()">→</button>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" id="slide3">
+            <div class="slide-header">Your Mission – Storyboard the Journey</div>
+            <div class="slide-content">
+                <div class="group-list">
+                    <div class="group-item">
+                        <strong>Group 1:</strong> Browser
+                    </div>
+                    <div class="group-item">
+                        <strong>Group 2:</strong> DNS
+                    </div>
+                    <div class="group-item">
+                        <strong>Group 3:</strong> Router 1 + Router 2
+                    </div>
+                    <div class="group-item">
+                        <strong>Group 4:</strong> Server
+                    </div>
+                    <div class="group-item">
+                        <strong>Group 5:</strong> Server-to-Browser (via Routers) + Rendering
+                    </div>
+                </div>
+                <div style="margin-top: 20px; text-align: center; font-size: 1.3em;">
+                    <p><em>Tell a 2-min adventure story for your stage!</em></p>
+                </div>
+                <div class="visual-container" style="font-size: 1.5em;">
+                    <div class="map-container">
+                        <div class="map-item">
+                            <div class="map-icon">🌐</div>
+                            <div>Browser</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">🔍</div>
+                            <div>DNS</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">📡</div>
+                            <div>Router 1</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">📡</div>
+                            <div>Router 2</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="map-item">
+                            <div class="map-icon">🖥️</div>
+                            <div>Server</div>
+                        </div>
+                        <div class="arrow" style="transform: rotate(90deg);">↓</div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevSlide()">←</button>
+                <button class="nav-button" onclick="nextSlide()">→</button>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide" id="slide4">
+            <div class="slide-header">Share Your Epic Tale</div>
+            <div class="slide-content">
+                <div class="text-container">
+                    <p>Present your story. How do the routers pass the baton?</p>
+                </div>
+                <div class="visual-container">
+                    <span style="font-size: 1.5em;">🏃‍♂️ → 🏃‍♀️</span>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevSlide()">←</button>
+                <button class="nav-button" onclick="nextSlide()">→</button>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide" id="slide5">
+            <div class="slide-header">Teaser</div>
+            <div class="slide-content">
+                <div class="text-container">
+                    <p>Next: Race through two routers in the Packet Relay!</p>
+                </div>
+                <div class="visual-container">
+                    <div style="display: flex; align-items: center; font-size: 1.5em;">
+                        <div style="text-align: center; margin-right: 40px;">
+                            <div style="font-size: 2em;">📡</div>
+                            <div style="margin-top: 10px;">Router 1</div>
+                        </div>
+                        <div style="font-size: 2em; animation: bounce 1s infinite alternate;">📦</div>
+                        <div style="text-align: center; margin-left: 40px;">
+                            <div style="font-size: 2em;">📡</div>
+                            <div style="margin-top: 10px;">Router 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevSlide()">←</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(`slide${slideNumber}`).classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Add animation for the packet
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                from { transform: translateX(-20px); }
+                to { transform: translateX(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
